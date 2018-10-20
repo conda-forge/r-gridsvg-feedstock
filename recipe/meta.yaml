@@ -1,5 +1,4 @@
 {% set version = '1.6-0' %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,12 +9,13 @@ package:
 source:
   fn: gridSVG_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/gridSVG_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/gridSVG/gridSVG_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/gridSVG_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/gridSVG/gridSVG_{{ version }}.tar.gz
   sha256: 122c8882e5f89a7aed6a141a68fd9291ec83ffd321385a3aeb4e536620b8dd1a
 
 build:
-  number: 0
+  merge_build_host: True  # [win]
+  number: 1
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
@@ -23,10 +23,11 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-xml
     - r-jsonlite
-
   run:
     - r-base
     - r-xml
@@ -34,7 +35,7 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('gridSVG')"  # [not win]
+    - $R -e "library('gridSVG')"           # [not win]
     - "\"%R%\" -e \"library('gridSVG')\""  # [win]
 
 about:
@@ -48,8 +49,9 @@ about:
 
 extra:
   recipe-maintainers:
-    - cbrueffer
     - johanneskoester
     - bgruening
     - daler
     - jdblischak
+    - cbrueffer
+    - dbast
