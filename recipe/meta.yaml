@@ -1,4 +1,4 @@
-{% set version = "1.7-1" %}
+{% set version = '1.7-1' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,16 +7,15 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: gridSVG_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/gridSVG_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/gridSVG/gridSVG_{{ version }}.tar.gz
   sha256: 0f8a4ef642f4da92c908acdb98f1c4b80ea9142a66b2da776efe814a81402a0f
 
 build:
-  noarch: generic
   merge_build_host: True  # [win]
   number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
@@ -40,19 +39,30 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=gridSVG
-  license: GPL
+  license: GPL-3
   summary: Functions to export graphics drawn with package grid to SVG format.  Additional functions
     provide access to SVG features that are not available in standard R graphics, such
-    as hyperlinks,  animation, filters, masks, clipping paths, and gradient and pattern
+    as hyperlinks, animation, filters, masks, clipping paths, and gradient and pattern
     fills.
-  license_family: GPL
+  license_family: GPL3
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+
+# Package: gridSVG
+# Title: Export 'grid' Graphics as SVG
+# Version: 1.7-1
+# Authors@R: c(person("Paul", "Murrell", role = c("cre", "aut"), email = "paul@stat.auckland.ac.nz"), person("Simon", "Potter", role = "aut", email = "simon@sjp.co.nz"))
+# Description: Functions to export graphics drawn with package grid to SVG format.  Additional functions provide access to SVG features that are not available in standard R graphics, such as hyperlinks, animation, filters, masks, clipping paths, and gradient and pattern fills.
+# Imports: grDevices, graphics, utils, methods, grid, jsonlite, XML
+# Suggests: lattice
+# License: GPL
+# NeedsCompilation: no
+# Packaged: 2019-10-23 19:10:09 UTC; pmur002
+# Author: Paul Murrell [cre, aut], Simon Potter [aut]
+# Maintainer: Paul Murrell <paul@stat.auckland.ac.nz>
+# Repository: CRAN
+# Date/Publication: 2019-10-28 21:30:02 UTC
