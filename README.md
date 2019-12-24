@@ -3,11 +3,11 @@ About r-gridsvg
 
 Home: https://CRAN.R-project.org/package=gridSVG
 
-Package license: GPL
+Package license: GPL-3
 
 Feedstock license: BSD 3-Clause
 
-Summary: Functions to export graphics drawn with package grid to SVG format.  Additional functions provide access to SVG features that are not available in standard R graphics, such as hyperlinks,  animation, filters, masks, clipping paths, and gradient and pattern fills.
+Summary: Functions to export graphics drawn with package grid to SVG format.  Additional functions provide access to SVG features that are not available in standard R graphics, such as hyperlinks, animation, filters, masks, clipping paths, and gradient and pattern fills.
 
 
 
@@ -116,11 +116,5 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@bgruening](https://github.com/bgruening/)
-* [@cbrueffer](https://github.com/cbrueffer/)
 * [@conda-forge/r](https://github.com/conda-forge/r/)
-* [@daler](https://github.com/daler/)
-* [@dbast](https://github.com/dbast/)
-* [@jdblischak](https://github.com/jdblischak/)
-* [@johanneskoester](https://github.com/johanneskoester/)
 
