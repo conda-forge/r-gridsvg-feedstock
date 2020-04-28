@@ -1,4 +1,4 @@
-{% set version = '1.7-1' %}
+{% set version = "1.7-2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/gridSVG_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/gridSVG/gridSVG_{{ version }}.tar.gz
-  sha256: 0f8a4ef642f4da92c908acdb98f1c4b80ea9142a66b2da776efe814a81402a0f
+  sha256: 00fe5bab73ded90b5ae64b2660be6ba26499f7e4d2d74b13363895a3cc6fb06f
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   noarch: generic
   rpaths:
@@ -22,7 +22,7 @@ build:
 
 requirements:
   build:
-    - {{posix}}zip               # [win]
+    - {{ posix }}zip               # [win]
   host:
     - r-base
     - r-xml
@@ -40,13 +40,10 @@ test:
 about:
   home: https://CRAN.R-project.org/package=gridSVG
   license: GPL-3
-  summary: Functions to export graphics drawn with package grid to SVG format.  Additional functions
-    provide access to SVG features that are not available in standard R graphics, such
-    as hyperlinks, animation, filters, masks, clipping paths, and gradient and pattern
-    fills.
+  summary: Functions to export graphics drawn with package grid to SVG format.  Additional functions provide access to SVG features that are not available in standard R graphics, such as hyperlinks, animation, filters, masks, clipping paths, and gradient and pattern fills.
   license_family: GPL3
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
