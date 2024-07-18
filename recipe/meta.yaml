@@ -1,6 +1,5 @@
 {% set version = "1.7-5" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-gridsvg
@@ -13,8 +12,7 @@ source:
   sha256: 25cf6abaf6ea0abde676edc6f5012139c5c65e068412d2d38876998453b718dd
 
 build:
-  merge_build_host: true  # [win]
-  number: 1
+  number: 2
   noarch: generic
   rpaths:
     - lib/R/lib/
