@@ -1,4 +1,4 @@
-{% set version = "1.7-6" %}
+{% set version = "1.7-7" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/gridSVG_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/gridSVG/gridSVG_{{ version }}.tar.gz
-  sha256: 974593f9349bd1c9e2b332f7c0853f276eb99a04b1989be99bfaa808bf25ca9b
+  sha256: 844b19bdbda0166d752f8c4f6cdf5a0533b161486447305cf94ffcab62dd457a
 
 build:
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
